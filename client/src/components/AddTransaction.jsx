@@ -57,6 +57,7 @@ const AddTransaction = () => {
             onChange={(e) => setText(e.target.value)}
           />
         </div>
+
         <div className="form-control">
           <label htmlFor="amount">
             Amount <br />
