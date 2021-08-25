@@ -3,6 +3,7 @@ import { cleanup, render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import appReducer from "../context/AppReducer";
 afterEach(cleanup);
+
 test("reducers works correctly", () => {
   expect(
     appReducer([], {

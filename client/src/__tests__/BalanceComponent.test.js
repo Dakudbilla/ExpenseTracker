@@ -1,8 +1,9 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { cleanup, render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import BalanceComponent from "../components/BalanceComponent";
 import { numberWithCommas } from "../utils/format";
+afterEach(cleanup);
 
 describe("<BalanceComponent/>", () => {
   test("add comma to numbers function works correctly", () => {
