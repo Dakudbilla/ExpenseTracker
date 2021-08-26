@@ -1,9 +1,10 @@
-import express from "express";
-import dotenv from "dotenv";
-import colors from "colors";
-import morgan from "morgan";
-import transactions from "./routes/transactions.js";
-import connectDB from "./config/db.js";
+const express = require("express");
+const dotenv = require("dotenv");
+const colors = require("colors");
+const morgan = require("morgan");
+const transactions = require("./routes/transactions.js");
+const connectDB = require("./config/db.js");
+
 dotenv.config({ path: "./config/config.env" });
 
 connectDB();

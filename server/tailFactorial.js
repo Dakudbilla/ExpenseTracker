@@ -6,3 +6,5 @@ const tailFactorial = (x, y = 1) => {
 
   return tailFactorial(x - 1, x * y);
 };
+
+module.exports = tailFactorial;
