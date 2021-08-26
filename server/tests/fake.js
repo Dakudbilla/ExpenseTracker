@@ -1,5 +1,4 @@
 exports.fakeTransaction = () => ({
-  _id: "12345",
   text: "Eat",
   amount: 5,
 });
