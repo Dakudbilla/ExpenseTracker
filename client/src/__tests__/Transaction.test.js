@@ -1,9 +1,9 @@
 import React from "react";
 import { render } from "@testing-library/react";
+
 import "@testing-library/jest-dom/extend-expect";
 import Transaction from "../components/Transaction";
 import { GlobalProvider } from "../context/GlobalState";
-
 const mockContext = () => (
   <GlobalProvider>
     <Transaction
@@ -31,7 +31,10 @@ describe("Transaction Component", () => {
     expect(deleteButton).toBeInTheDocument();
   });
 
-  test("transaction and edit and delete buttons are not visible until hover", () => {});
+  test("should display transaction text and amount succesfully", () => {
+    const { getByText } = render(mockContext());
 
-  test("delete button press should delete transaction", async () => {});
+    expect(getByText(/Eat/)).toBeTruthy();
+    expect(getByText(/\$5/)).toBeTruthy();
+  });
 });
