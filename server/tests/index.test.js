@@ -21,7 +21,7 @@ describe("API Endpoints", () => {
       .send(fakeTransaction());
 
     expect(status).toBe(201);
-    expect(body.succes).toEqual(true);
+    expect(body.success).toEqual(true);
     expect(body.data.text).toEqual("Eat");
   });
 
