@@ -7,10 +7,11 @@ const TransactionList = () => {
   useEffect(() => {
     getTransactions();
   }, []);
+
   return (
     <>
       <h3>History</h3>
-      <ul id="list" className="list">
+      <ul id="list" data-testid="transaction-list" className="list">
         {transactions.map((transaction) => (
           <Transaction key={transaction._id} transaction={transaction} />
         ))}

@@ -1,11 +1,11 @@
-import Transaction from "./../models/Transaction.js";
+const Transaction = require("./../models/Transaction.js");
 
 /**
  * @description GET all transactions
  * @route        GET /api/v1/transactions
  * @access       PUBLIC
  */
-export const getTransactions = async (req, res, next) => {
+exports.getTransactions = async (req, res, next) => {
   try {
     const transactions = await Transaction.find();
     return res.status(200).json({
@@ -26,12 +26,12 @@ export const getTransactions = async (req, res, next) => {
  * @route        POST /api/v1/transactions
  * @access       PUBLIC
  */
-export const addTransaction = async (req, res, next) => {
+exports.addTransaction = async (req, res, next) => {
   try {
     const { text, amount } = req.body;
     const transaction = await Transaction.create(req.body);
     return res.status(201).json({
-      succes: true,
+      success: true,
       data: transaction,
     });
   } catch (err) {
@@ -56,14 +56,13 @@ export const addTransaction = async (req, res, next) => {
  * @route        DELETE /api/v1/transactions/:id
  * @access       PUBLIC
  */
-export const deleteTransaction = async (req, res, next) => {
+exports.deleteTransaction = async (req, res, next) => {
   try {
     //check if transaction exist
     const transaction = await Transaction.findById(req.params.id);
-
     if (!transaction) {
       return res.status(404).json({
-        succes: false,
+        success: false,
         error: "transaction not found",
       });
     }
