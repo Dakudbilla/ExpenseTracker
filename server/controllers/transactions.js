@@ -31,7 +31,7 @@ exports.addTransaction = async (req, res, next) => {
     const { text, amount } = req.body;
     const transaction = await Transaction.create(req.body);
     return res.status(201).json({
-      succes: true,
+      success: true,
       data: transaction,
     });
   } catch (err) {
@@ -60,10 +60,9 @@ exports.deleteTransaction = async (req, res, next) => {
   try {
     //check if transaction exist
     const transaction = await Transaction.findById(req.params.id);
-
     if (!transaction) {
       return res.status(404).json({
-        succes: false,
+        success: false,
         error: "transaction not found",
       });
     }
