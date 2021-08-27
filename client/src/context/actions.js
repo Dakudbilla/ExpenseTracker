@@ -8,6 +8,8 @@ export const deleteTransactionAction = async (id) => {
       payload: id,
     };
   } catch (err) {
+    console.log(err);
+
     return {
       type: "TRANSACTION_ERROR",
       payload: err.res.data.error,

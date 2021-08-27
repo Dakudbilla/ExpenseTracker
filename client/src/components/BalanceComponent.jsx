@@ -11,7 +11,9 @@ const BalanceComponent = () => {
     <div data-testid="balance">
       <h4 data-testid="balance-title">Your Balance</h4>
       <h1 data-testid="balance-value" id="balance">
-        ${numberWithCommas(total)}
+        {total > 0
+          ? `$${numberWithCommas(total)}`
+          : `-$${numberWithCommas(-total)}`}
       </h1>
     </div>
   );
