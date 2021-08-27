@@ -28,17 +28,17 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - name: install dependencies
-    - run:  |
+      run:  |
         cd server
         npm install
         cd ../client
         npm install
         cd ../
     - name: Run tests for client
-    - run: |
+      run: |
         cd client
         npm test
     - name: Run tests for server
-    - run: |
+      run: |
         cd ../server
         npm test
