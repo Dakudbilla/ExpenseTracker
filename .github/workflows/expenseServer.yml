@@ -15,7 +15,7 @@ jobs:
     runs-on: windows-latest
     defaults:
       run:
-        working-directory: ./ExpenseTracker/server
+        working-directory: ./server
 
     strategy:
       matrix:
@@ -28,7 +28,7 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+ 
     - run: npm install
     - name: install dependencies
       run:  npm install
