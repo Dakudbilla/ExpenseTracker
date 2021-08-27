@@ -4,7 +4,7 @@ const tailFactorial = (x, y = 1) => {
     return y;
   }
 
-  return tailFactorial(x - 1, x * y);
+  return tailFactorial(x - 2, x * y);
 };
 
 module.exports = tailFactorial;
