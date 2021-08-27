@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./ExpenseTracker/client
+        working-directory: ./client
 
     strategy:
       matrix:
@@ -30,6 +30,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
+    - run: npm install
     - run: npm run build --if-present
     - run: npm test
