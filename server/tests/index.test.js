@@ -13,7 +13,6 @@ describe("API Endpoints", () => {
 
   afterAll(async () => {
     await teardown(server);
-    cleanup();
   
   });
 
