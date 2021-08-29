@@ -15,5 +15,7 @@ const connectDB = async () => {
     process.exit(1);
   }
 };
+///This here uses SINGLETON DESIGN PATTERN
+//Only one instance is required.
 
 module.exports = connectDB;
