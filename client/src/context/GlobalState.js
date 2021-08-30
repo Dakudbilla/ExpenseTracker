@@ -38,6 +38,14 @@ export const GlobalProvider = ({ children }) => {
   };
 
   return (
+    /**
+     * Facade pattern used here
+     * with this users of context will
+     * only use GlobalContextProvider to have
+     * access to various actions and context state
+     * with out accessing each function individually
+     *
+     */
     <GlobalContext.Provider
       value={{
         transactions: state.transactions,
