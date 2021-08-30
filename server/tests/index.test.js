@@ -13,6 +13,7 @@ describe("API Endpoints", () => {
 
   afterAll(async () => {
     await teardown(server);
+  
   });
 
   it("Adds a transaction succesfully", async () => {
