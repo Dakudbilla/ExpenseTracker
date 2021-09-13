@@ -37,7 +37,5 @@ jobs:
 
       - run: npm test
       - name: Build
-        run: |
-          set CI=false
-          npm run build
+        run: CI= npm run build
 
