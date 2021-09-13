@@ -14,6 +14,10 @@ const IncomeExpenses = () => {
       <div>
         <h4 data-testid="income-header">Income</h4>
         <p className="money plus" data-testid="income-value">
+          {/**
+           * Decorator pattern
+           *
+           */}
           ${numberWithCommas(income)}
         </p>
       </div>

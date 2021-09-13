@@ -58,6 +58,14 @@ exports.addTransaction = async (req, res, next) => {
 exports.deleteTransaction = async (req, res, next) => {
   try {
     //check if transaction exist
+    /**
+     * Chain of Responsibility Pattern
+     * A request to /api/v1/transactions/:id
+     * is done by client, the request is passed
+     * to the deleteTransaction handler
+     *
+     *
+     */
     const transaction = await Transaction.findById(req.params.id);
     if (!transaction) {
       return res.status(404).json({
