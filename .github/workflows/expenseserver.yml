@@ -19,7 +19,7 @@ defaults:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -41,12 +41,12 @@ jobs:
           npm test
   deploy: 
     needs: build
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "expens-etracker"
-          heroku_email: "akuddev@gmail.com"
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
           procfile: "web:node server/server.js"
