@@ -49,3 +49,4 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "expens-etracker"
           heroku_email: "akuddev@gmail.com"
+          procfile: "web:node server/server.js"
