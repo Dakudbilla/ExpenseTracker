@@ -47,5 +47,5 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{a5d9ec1e-0447-4c49-bf40-e58e9f912cae}}
-          heroku_app_name: "micah-simple-node-api"
+          heroku_app_name: "expens-etracker"
           heroku_email: "akuddev@gmail.com"
