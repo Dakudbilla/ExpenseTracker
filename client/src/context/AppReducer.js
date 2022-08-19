@@ -32,7 +32,37 @@ const appReducer = (state, { type, payload }) => {
         loading: false,
         error: payload,
       };
-
+    case "USER_ERROR":
+      return {
+        ...state,
+        loading: false,
+        error: payload,
+      };
+    case "USER_LOGIN":
+      return {
+        ...state,
+        user: { ...state.user, ...payload },
+        isAuth: true,
+      };
+    case "REGISTER_USER":
+      return {
+        ...state,
+        user: { ...state.user, ...payload },
+        isAuth: true,
+      };
+    case "LOGOUT_USER":
+      return {
+        ...state,
+        user: { name: "", token: "" },
+        transaction: [],
+        editId: 0,
+        error: null,
+      };
+    case "CLEAR_ERROR":
+      return {
+        ...state,
+        error: null,
+      };
     default:
       return state;
   }

@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
 exports.protect = asyncHandler(async (req, res, next) => {
+  console.log(req.authorization);
   let token;
   if (
     req.headers.authorization &&
@@ -18,15 +19,17 @@ exports.protect = asyncHandler(async (req, res, next) => {
     } catch (err) {
       console.error(err);
 
-      res.status(401).json({
+      return res.status(401).json({
+        success: false,
         error: "Not Authorized Request",
       });
     }
   }
 
   if (!token) {
-    res.status(401).json({
-      error: "Not Authorized Request",
+    return res.status(401).json({
+      success: false,
+      error: `Server Error `,
     });
   }
 });
