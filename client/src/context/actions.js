@@ -14,8 +14,6 @@ export const deleteTransactionAction = async (id) => {
       payload: id,
     };
   } catch (err) {
-    console.log(err);
-
     return {
       type: "TRANSACTION_ERROR",
       payload: err.response ? err.response.data.error : err.res.data.error,
@@ -57,8 +55,6 @@ export const getTransactionsAction = async () => {
     Authorization: `Bearer ${userInfo.token}`,
   };
 
-  console.log(config);
-
   try {
     const { data } = await axios.get("/api/v1/transactions", {
       headers: config,
@@ -87,7 +83,7 @@ export const LoginUser = async (user) => {
     localStorage.setItem("userInfo", JSON.stringify(data));
     return {
       type: "USER_LOGIN",
-      payload: data.data,
+      payload: data,
     };
   } catch (err) {
     return {

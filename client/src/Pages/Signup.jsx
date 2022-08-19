@@ -1,16 +1,18 @@
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
-import useDeepCompareEffect from "use-deep-compare-effect";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
 const Signup = () => {
   const { registerUser, user } = useContext(GlobalContext);
   const navigate = useNavigate();
-  useDeepCompareEffect(() => {
-    navigate("/");
-  }, [user]);
+  useEffect(() => {
+    if (user.token) {
+      navigate("/");
+    }
+  }, [navigate, user.token]);
+
   return (
     <div className="container">
       <h1 style={{ textAlign: "center" }}>Register Form</h1>
@@ -30,8 +32,8 @@ const Signup = () => {
             .email("Invalid email address")
             .required("Required"),
         })}
-        onSubmit={(values, { setSubmitting }) => {
-          registerUser({
+        onSubmit={async (values, { setSubmitting }) => {
+          await registerUser({
             email: values.email,
             name: `${values.lastName + " " + values.firstName}`,
             password: values.password,

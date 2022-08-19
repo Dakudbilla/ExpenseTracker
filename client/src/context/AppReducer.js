@@ -42,12 +42,11 @@ const appReducer = (state, { type, payload }) => {
       return {
         ...state,
         user: { ...state.user, ...payload },
-        isAuth: true,
       };
     case "REGISTER_USER":
       return {
         ...state,
-        user: { ...state.user, ...payload },
+        user: payload,
         isAuth: true,
       };
     case "LOGOUT_USER":

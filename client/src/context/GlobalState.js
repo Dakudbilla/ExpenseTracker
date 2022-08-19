@@ -1,5 +1,4 @@
-import { createContext, useEffect, useReducer } from "react";
-import { Navigate } from "react-router-dom";
+import { createContext, useReducer } from "react";
 import {
   addTransactionAction,
   deleteTransactionAction,
@@ -20,7 +19,6 @@ const initialState = {
   user: localStorage.getItem("userInfo")
     ? JSON.parse(localStorage.getItem("userInfo"))
     : { token: "", name: "" },
-  isAuth: false,
 };
 
 //create context
@@ -62,11 +60,6 @@ export const GlobalProvider = ({ children }) => {
     });
   };
 
-  // useEffect(() => {
-  //   Navigate("/");
-  //   console.log("I runnnn");
-  // }, [state.user.token]);
-
   return (
     /**
      * Facade pattern used here
@@ -91,7 +84,6 @@ export const GlobalProvider = ({ children }) => {
         user: state.user,
         error: state.error,
         clearError,
-        isAuth: Boolean(state.user.token),
       }}
     >
       {children}

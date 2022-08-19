@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./App.css";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./Pages/Login";
@@ -19,7 +19,7 @@ const App = () => {
     }, 5000);
 
     return () => clearTimeout();
-  }, [error]);
+  }, [error, clearError]);
   return (
     <>
       {showError ? (
