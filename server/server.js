@@ -33,7 +33,7 @@ app.get("/", (req, res) => res.send("Welcome To Express Tracker Api"));
 const PORT = process.env.PORT || 5005;
 if (process.env.NODE_ENV === "production") {
   //use static build of react app
-  app.use(express.static(path.join(folder, "./build")));
+  app.use(express.static(path.join(folder, "/client/build")));
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(folder, "client", "build", "index.html"));
   });
